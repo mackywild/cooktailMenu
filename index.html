@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09090b">
+  <title>MAKKY BAR</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- EmailJS Browser SDK -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    defer>
+  </script>
+
+  <script src="./js/menu-data.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero__shade"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">ONE NIGHT ONLY</p>
+      <h1>MAKKY BAR</h1>
+      <p class="hero__lead">
+        METAL・HORROR・UNDERGROUND<br>
+        今夜、理性は閉店しました。
+      </p>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="notice" aria-label="ご案内">
+      <p>
+        気になる一杯を選び、注文ボタンを押してください。
+        注文確定後、バーテンダーへレシピが送信されます。
+      </p>
+    </section>
+
+    <nav class="category-filter" aria-label="カテゴリ絞り込み">
+      <button type="button" class="filter-button is-active" data-category="ALL">
+        ALL
+      </button>
+      <button type="button" class="filter-button" data-category="METAL">
+        🤘 METAL
+      </button>
+      <button type="button" class="filter-button" data-category="HORROR">
+        🩸 HORROR
+      </button>
+      <button type="button" class="filter-button" data-category="UNDERGROUND">
+        🔞 UNDERGROUND
+      </button>
+    </nav>
+
+    <section>
+      <div id="menuList" class="menu-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog id="orderDialog" class="order-dialog">
+    <form id="orderForm" class="order-dialog__body">
+      <button
+        id="dialogCloseButton"
+        class="dialog-close"
+        type="button"
+        aria-label="閉じる">
+        ×
+      </button>
+
+      <p id="dialogCategory" class="dialog-category"></p>
+      <h2 id="dialogMenuName"></h2>
+      <p id="dialogDescription" class="dialog-description"></p>
+
+      <dl class="order-summary">
+        <div>
+          <dt>強さ</dt>
+          <dd id="dialogStrength"></dd>
+        </div>
+        <div>
+          <dt>甘さ</dt>
+          <dd id="dialogSweetness"></dd>
+        </div>
+      </dl>
+
+      <label class="input-group">
+        <span>注文者名</span>
+        <input
+          id="customerName"
+          name="customerName"
+          type="text"
+          maxlength="20"
+          autocomplete="name"
+          placeholder="例：たくや">
+      </label>
+
+      <p class="confirm-message">
+        この一杯を召喚しますか？
+      </p>
+
+      <div class="dialog-actions">
+        <button id="cancelButton" type="button" class="button button--secondary">
+          戻る
+        </button>
+        <button id="confirmButton" type="submit" class="button button--primary">
+          注文確定
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer class="footer">
+    <p>Drink responsibly. 生きて帰るまでがマッキーバー。</p>
+  </footer>
+</body>
+</html>
