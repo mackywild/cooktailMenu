@@ -4,7 +4,7 @@
  * EmailJS管理画面で取得した値へ置き換えてください。
  */
 const EMAILJS_CONFIG = {
-  publicKey: "kyBOw3PF7EZzXcfD4N3g",
+  publicKey: "EMgUAvOGX9y4tb7xB",
   serviceId: "service_d98epfr",
   templateId: "template_nv2b8w7"
 };
